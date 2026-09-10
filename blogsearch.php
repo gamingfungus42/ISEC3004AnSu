@@ -1,7 +1,6 @@
 <?php
 
 $config = require __DIR__ . '/config.php';
-
 try {
     $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']}";
     $pdo = new PDO($dsn, $config['user'], $config['pass'], [
@@ -15,7 +14,7 @@ try {
 
 $query = isset($_GET['q']) ? trim($_GET['q']) : '';
 
-\$totalPosts = (int) $pdo->query('SELECT COUNT(*) FROM posts')->fetchColumn();
+$totalPosts = (int) $pdo->query('SELECT COUNT(*) FROM posts')->fetchColumn();
 
 if ($query === '') {
     $sql = 'SELECT id, username, description, post_date FROM posts ORDER BY post_date DESC';
