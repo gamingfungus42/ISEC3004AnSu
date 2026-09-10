@@ -1,6 +1,6 @@
 <?php
 
-$config = require 'config.php';
+$pdo = require 'config.php';
 
 $query = isset($_GET['q']) ? trim($_GET['q']) : '';
 
