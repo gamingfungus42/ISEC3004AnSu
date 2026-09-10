@@ -14,3 +14,9 @@ CREATE TABLE IF NOT EXISTS posts (
     description TEXT NOT NULL,
     post_date DATE NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS search_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    search_term VARCHAR(255) NOT NULL,
+    searched_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

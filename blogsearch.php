@@ -1,16 +1,6 @@
 <?php
 
-$config = require __DIR__ . '/config.php';
-try {
-    $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']}";
-    $pdo = new PDO($dsn, $config['user'], $config['pass'], [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
-} catch (PDOException $e) {
-    http_response_code(500);
-    die('Database connection failed. Check config.php.');
-}
+$config = require 'config.php';
 
 $query = isset($_GET['q']) ? trim($_GET['q']) : '';
 
@@ -60,6 +50,7 @@ function highlight($text, $query) {
 
 <?php if (empty($results)): ?>
     <p class="no-results">Good work idiot, no posts match "<?= $query ?>"! Try a different term.</p>
+  
 <?php else: ?>
     <?php foreach ($results as $post): ?>
         <article>
@@ -71,6 +62,18 @@ function highlight($text, $query) {
         </article>
     <?php endforeach; ?>
 <?php endif; ?>
+
+<script>
+function trackSearch(query) {
+    var img = new Image();
+    document.write('<img src="track.php?searchTerms='+query+'">')
+}
+
+var query = (new URLSearchParams(window.location.search)).get('q');
+if(query) {
+    trackSearch(query);
+}
+</script>
 
 </body>
 </html>
