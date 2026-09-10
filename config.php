@@ -1,11 +1,9 @@
 <?php
-// config.php - database connection settings
-// Update these to match your database
 
 $host = 'localhost';
-$dbname = 'login_demo';
-$username = 'root';
-$password = 'Anakinlee1!';
+$dbname = 'demodb';
+$username = 'user';
+$password = 'password';
 
 try {
     $pdo = new PDO(
@@ -21,7 +19,6 @@ try {
     die('Database connection failed: ' . $e->getMessage());
 }
 
-// Start session on every page that includes this file
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
