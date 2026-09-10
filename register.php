@@ -1,6 +1,6 @@
 <?php
 
-$pdo = require 'db.php';
+$pdo = require 'config.php';
 
 $errors = [];
 $username = '';
