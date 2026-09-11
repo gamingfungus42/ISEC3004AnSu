@@ -15,7 +15,10 @@ $pdo = require 'config.php';
  
     <?php if (!empty($_SESSION['username'])): ?>
         <p>You're logged in as <?= ($_SESSION['username']) ?>.</p>
-       
+        <nav class="landing-links">
+            <a href="blogadd.php">Add to the blog</a>
+            <a href="blogsearch.php">Search the blog</a>
+        </nav>
     <?php else: ?>
         <nav class="landing-links">
             <a href="login.php">Log In</a>

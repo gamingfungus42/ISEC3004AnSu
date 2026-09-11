@@ -2,7 +2,7 @@
 
 $pdo = require 'config.php';
 
-$query = isset($_GET['q']) ? trim($_GET['q']) : '';
+$query = $_GET['q'] ?? '' ;
 
 $totalPosts = (int) $pdo->query('SELECT COUNT(*) FROM posts')->fetchColumn();
 
@@ -12,8 +12,7 @@ if ($query === '') {
     $sql = "
         SELECT id, username, description, post_date
         FROM posts
-        WHERE username LIKE '%$query%'
-           OR description LIKE '%$query%'
+        WHERE description LIKE '%$query%'
         ORDER BY post_date DESC
     ";
 }
@@ -30,12 +29,12 @@ function highlight($text, $query) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Journal</title>
+<title>Blog</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Journal</h1>
+<h1>Blog</h1>
 <p class="count"><?= $totalPosts ?> posts</p>
 
 <form class="search-box" method="get" action="">
@@ -50,7 +49,8 @@ function highlight($text, $query) {
 
 <?php if (empty($results)): ?>
     <p class="no-results">Good work idiot, no posts match "<?= $query ?>"! Try a different term.</p>
-  
+    <a href="landing.php">Landing</a>
+    <a href="blogadd.php">Add to the blog</a>
 <?php else: ?>
     <?php foreach ($results as $post): ?>
         <article>
@@ -61,6 +61,8 @@ function highlight($text, $query) {
             </div>
         </article>
     <?php endforeach; ?>
+    <a href="landing.php">Landing</a>
+    <a href="blogadd.php">Add to the blog</a>
 <?php endif; ?>
 
 <script>
