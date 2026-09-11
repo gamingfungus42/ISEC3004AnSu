@@ -134,3 +134,37 @@ mark {
   color: inherit;
   border-radius: 2px;
 }
+.landing {
+    max-width: 480px;
+    margin: 4rem auto;
+    text-align: center;
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+ 
+.landing-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+ 
+.landing-links a {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+ 
+.landing-links a:first-child {
+    background: #c96442;
+    color: #fff;
+}
+ 
+.landing-links a:last-child {
+    background: #ebe9e5;
+    color: #262624;
+}
