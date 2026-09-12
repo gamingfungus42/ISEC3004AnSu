@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'description' => $description,
         ]);
  
-        header('Location: home.php');
+        header('Location: landing.php');
         exit;
     }
 }
@@ -56,7 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Post</button>
     </form>
  
-    <p><a href="landing.php">Home</a></p>
+<nav class="landing-links">
+    <a class="btn-primary" href="landing.php">Home</a>
+</nav>
 </div>
  
 </body>

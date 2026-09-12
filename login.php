@@ -14,11 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "SELECT id, username, password FROM users WHERE username = '$username' OR email = '$username'";
             $user = $pdo->query($sql)->fetch();
 
-            if ($user && password_verify($password, $user['password'])) {
+            if ($user && $password == $user['password']) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
 
-                header('Location: home.php');
+                header('Location: landing.php');
                 exit;
             } else {
                 $errors[] = 'Invalid username or password.';
@@ -52,6 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Log In</button>
     </form>
     <p>Don't have an account? <a href="register.php">Register</a></p>
+    <nav class="landing-links">
+    <a class="btn-primary" href="landing.php">Home</a>
+    </nav>
 </div>
 </body>
 </html>

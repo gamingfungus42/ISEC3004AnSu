@@ -16,15 +16,16 @@ $pdo = require 'config.php';
     <?php if (!empty($_SESSION['username'])): ?>
         <p>You're logged in as <?= ($_SESSION['username']) ?>.</p>
         <nav class="landing-links">
-            <a href="blogadd.php">Add to the blog</a>
-            <a href="blogsearch.php">Search the blog</a>
+            <a class="btn-primary" href="blogadd.php">Add to the blog</a>
+            <a class="btn-primary" href="blogsearch.php">Search the blog</a>
+            <a class="btn-secondary" href="logout.php">Log Out</a>
         </nav>
     <?php else: ?>
-        <nav class="landing-links">
-            <a href="login.php">Log In</a>
-            <a href="register.php">Register</a>
-            <a href="blogadd.php">Add to the blog</a>
-            <a href="blogsearch.php">Search the blog</a>
+       <nav class="landing-links">
+        <a href="login.php" class="btn-primary">Log In</a>
+        <a href="register.php" class="btn-secondary">Register</a>
+        <a href="blogadd.php" class="btn-secondary">Add to the blog</a>
+        <a href="blogsearch.php" class="btn-secondary">Search the blog</a>
         </nav>
     <?php endif; ?>
 </div>

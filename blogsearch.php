@@ -34,6 +34,7 @@ function highlight($text, $query) {
 </head>
 <body>
 
+<div class="blog-container">
 <h1>Blog</h1>
 <p class="count"><?= $totalPosts ?> posts</p>
 
@@ -42,15 +43,17 @@ function highlight($text, $query) {
         type="text"
         name="q"
         value="<?= $query ?>"
-        placeholder="Search by username or description…"
+        placeholder="Search by description…"
         autofocus
     >
 </form>
 
 <?php if (empty($results)): ?>
     <p class="no-results">Good work idiot, no posts match "<?= $query ?>"! Try a different term.</p>
-    <a href="landing.php">Landing</a>
-    <a href="blogadd.php">Add to the blog</a>
+    <nav class="landing-links">
+    <a class="btn-primary" href="blogadd.php">Add to the blog</a>
+    <a class="btn-secondary" href="landing.php">Home</a>
+    </nav>
 <?php else: ?>
     <?php foreach ($results as $post): ?>
         <article>
@@ -61,9 +64,12 @@ function highlight($text, $query) {
             </div>
         </article>
     <?php endforeach; ?>
-    <a href="landing.php">Landing</a>
-    <a href="blogadd.php">Add to the blog</a>
+    <nav class="landing-links">
+    <a class="btn-primary" href="blogadd.php">Add to the blog</a>
+    <a class="btn-secondary" href="landing.php">Home</a>
+    </nav>
 <?php endif; ?>
+</div>
 
 <script>
 function trackSearch(query) {

@@ -60,45 +60,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<h1>Create an Account</h1>
+<div class="auth-box">
+    <h1>Create an Account</h1>
 
-<?php if (!empty($errors)): ?>
-    <ul class="errors">
-        <?php foreach ($errors as $error): ?>
-            <li><?= $error ?></li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+    <?php if (!empty($errors)): ?>
+        <ul class="errors">
+            <?php foreach ($errors as $error): ?>
+                <li class="error"><?= $error ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 
-<form method="post" action="">
-    <label for="username">Username</label>
-    <input
-        type="text"
-        id="username"
-        name="username"
-        value="<?= $username ?>"
-        required
-    >
+    <form method="post" action="">
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            value="<?= $username ?>"
+            required
+        >
 
-    <label for="email">Email</label>
-    <input
-        type="email"
-        id="email"
-        name="email"
-        value="<?= $email ?>"
-        required
-    >
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            value="<?= $email ?>"
+            required
+        >
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
 
-    <label for="confirm_password">Confirm Password</label>
-    <input type="password" id="confirm_password" name="confirm_password" required>
+        <button type="submit">Register</button>
 
-    <button type="submit">Register</button>
-</form>
+    </form>
 
-<p>Already have an account? <a href="login.php">Log in</a></p>
+    <p>Already have an account? <a href="login.php">Log in</a></p>
+    <nav class="landing-links">
+        <a class="btn-secondary" href="landing.php">Home</a>
+    </nav>
+</div>
 
 </body>
 </html>

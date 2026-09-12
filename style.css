@@ -25,15 +25,16 @@ h1 {
 
 label {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   font-size: 0.9rem;
   color: #333;
 }
 
 input {
+  display: block;
   width: 100%;
   padding: 0.6rem;
-  margin-top: 0.3rem;
+  margin-bottom: 1.25rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
@@ -42,8 +43,10 @@ input {
 
 button,
 .button {
+  display: block;
   width: 100%;
   padding: 0.7rem;
+  margin-top: 1rem;
   background: #2563eb;
   color: #fff;
   border: none;
@@ -52,8 +55,12 @@ button,
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   box-sizing: border-box;
+}
+
+button:hover,
+.button:hover {
+  background: #1d4ed8;
 }
 
 button:hover,
@@ -106,9 +113,10 @@ p {
   font-size: 14px;
 }
 article {
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 24px;
-  margin-bottom: 28px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
 }
 article h2 {
   font-size: 19px;
@@ -135,7 +143,7 @@ mark {
   border-radius: 2px;
 }
 .landing {
-    max-width: 480px;
+    max-width: 680px;
     margin: 4rem auto;
     text-align: center;
     background: #fff;
@@ -145,26 +153,43 @@ mark {
 }
  
 .landing-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
 }
- 
+
 .landing-links a {
-    display: inline-block;
-    padding: 0.6rem 1.4rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
+  padding: 0.7rem 1.3rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background 0.15s ease;
 }
- 
-.landing-links a:first-child {
-    background: #c96442;
-    color: #fff;
+
+.btn-primary {
+  background: #c96442;
+  color: #fff;
 }
- 
-.landing-links a:last-child {
-    background: #ebe9e5;
-    color: #262624;
+
+.btn-primary:hover {
+  background: #b3543a;
+}
+
+.btn-secondary {
+  background: #ebe9e5;
+  color: #262624;
+}
+
+.btn-secondary:hover {
+  background: #ddd9d2;
+}
+
+.blog-container {
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
 }
