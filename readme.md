@@ -6,5 +6,6 @@
 # sudo mysql < schema.sql
 # in (sudo) mysql> :
 # CREATE USER 'test'@'localhost' IDENTIFIED BY 'password';
+# Login as said user,
 # GRANT ALL PRIVILEGES ON demodb.* TO 'test'@'localhost';
 # FLUSH PRIVILEGES;

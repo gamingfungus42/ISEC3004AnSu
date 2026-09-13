@@ -71,6 +71,27 @@ function highlight($text, $query) {
 <?php endif; ?>
 </div>
 
+/* DOM-based XSS vulnerable code
+Purpose: this section of javascript is used to track user
+searches and add them to a database for tracking, allowing the
+owner to see what is being searched/what is popular
+
+First, query is retrieved via window.location.search performed on 'q',
+the input that is entered into the search bar. 
+trackSearch() then is called on query, which creates a new Image
+(1x1 px that is impossible for the viewer to see), writing in the form of
+an img src URL + the query string which is necessary for track.php 
+(description continued there)
+
+However, this introduces a major vulnerablility to DOM-based XSS attacks -
+First, the attacker can manipulate the url, accessed in the code via the 
+window.location object. As the query sits unprotected in document.write,
+the attacker can then paste their payload in the form of a query string
+to be written to the page and executed.
+As such, any javacsript-based payload can be used, ranging from redirecting,
+writing elements to the page or reading the session token, among many others.
+*/
+
 <script>
 function trackSearch(query) {
     var img = new Image();
