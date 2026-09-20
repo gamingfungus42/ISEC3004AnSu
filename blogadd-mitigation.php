@@ -63,8 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (!empty($errors)): ?>
         <p class="errors"><?= (implode(' ', $errors)) ?></p>
     <?php endif; ?>
- 
+    
     <form method="post" action="">
+        <input
+            type="hidden"
+            name="csrf_token" 
+            value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES. 'UTF-8') ?>"
+        >
         <label>Description
             <textarea name="description" rows="5" required><?= $description ?></textarea>
         </label>
