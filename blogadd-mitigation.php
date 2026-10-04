@@ -71,7 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES. 'UTF-8') ?>"
         >
         <label>Description
-            <textarea name="description" rows="5" required><?= $description ?></textarea>
+            // safely redisplays description by stopping text from being read as HTML
+            <textarea name="description" rows="5" required><?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?></textarea>
         </label>
         <button type="submit">Post</button>
     </form>
