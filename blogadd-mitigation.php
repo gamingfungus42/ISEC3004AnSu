@@ -17,7 +17,7 @@ $errors = [];
 $description = '';
  
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $submiitedToken = $_POST['csrf_token'] ?? '';
+    $submitedToken = $_POST['csrf_token'] ?? '';
 
     // Rejects POST request if it doesn't contain the correct session token
     if (!is_string($submittedToken) || !hash_equals($_SESSION['csrf_token'], $submittedToken)) {
@@ -68,10 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input
             type="hidden"
             name="csrf_token" 
-            value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES. 'UTF-8') ?>"
+            value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>"
         >
         <label>Description
-            // safely redisplays description by stopping text from being read as HTML
             <textarea name="description" rows="5" required><?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?></textarea>
         </label>
         <button type="submit">Post</button>
