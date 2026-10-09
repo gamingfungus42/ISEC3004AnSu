@@ -10,8 +10,7 @@ if ($query === '') {
     $sql = 'SELECT id, username, description, post_date FROM posts ORDER BY post_date DESC';
     $results = $pdo->query($sql)->fetchAll();
 } else {
-    // Parameterized query — $query is bound as data, never concatenated into SQL.
-    // Escape LIKE wildcards (%, _) within the value itself so they're treated literally.
+    // parameterised query - bound as data never concatenated into SQL.
     $escapedText = str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $query);
 
     $sql = "
@@ -28,7 +27,7 @@ if ($query === '') {
 /**
  * $text is HTML escaped first (convertedText), then <mark> tags are added around
  * matches found in the escaped text to guarantee nothing from the 
- * database (or from $query) is ever rendered as live HTML, preventing stored attacks
+ * database (or from query) is rendered as live HTML, also preventing stored attacks
  */
 
 function highlight(string $text, string $query): string
